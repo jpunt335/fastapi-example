@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 from typing import List
 from .color import Color
 
@@ -8,14 +8,12 @@ class CardBase(BaseModel):
     description: str
 
 class Card(CardBase):
+    model_config = ConfigDict(from_attributes=True)
     id: int
     colors: List[Color]
 
-    class Config:
-        from_attributes = True
-
 class CardCreate(CardBase):
+    model_config = ConfigDict(from_attributes=True)
+
     colors: List[Color]
 
-    class Config:
-        from_attributes = True
