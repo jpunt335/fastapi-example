@@ -3,3 +3,4 @@ uvicorn == 0.26.0
 SQLAlchemy == 2.0.25
 pytest==7.4.4
 pytest-cov==4.1.0
+alembic==1.13.1

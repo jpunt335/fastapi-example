@@ -47,7 +47,7 @@ def create_card(card: CardCreateSchema, db = Depends(get_db)) -> CardSchema:
                    description=card.description)
 
     for color_data in card.colors:
-        color = db.query(Color).filter(Color.name == color_data.name).first()  # Adjust if using color IDs
+        color = db.query(Color).filter(Color.name == color_data.name).first() 
         if color:
             db_card.colors.append(color)
 
