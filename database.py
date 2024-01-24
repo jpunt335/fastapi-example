@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -6,8 +8,8 @@ from models.base import Base
 
 # Database URL (Change this to your PostgreSQL connection string)
 #SQLALCHEMY_DATABASE_URL = "postgresql://myuser:mypassword@localhost/mydatabase"
-SQLALCHEMY_DATABASE_URL = "sqlite:///./mtg_cards.db"  # SQLite database
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./mtg_cards.db")  
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 # Create a session local class to interact with the database
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
