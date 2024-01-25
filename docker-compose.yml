@@ -5,12 +5,12 @@ version: '3.8'
 services:
   web:
     build: .
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; alembic upgrade head && uvicorn server:app --host 0.0.0.0'
+    command: bash -c 'alembic upgrade head && uvicorn server:app --host 0.0.0.0'
     #command: bash -c "alembic upgrade head && uvicorn server:app --host 0.0.0.0"
     volumes:
       - .:/app
     ports:
-      - 8008:8000
+      - 8000:8000
     environment:
       - DATABASE_URL=postgresql://fastapi:fastapi@db:5432/fastapi
     depends_on:
@@ -23,12 +23,17 @@ services:
       - 5432
     ports:
       - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=fastapi
       - POSTGRES_PASSWORD=fastapi
       - POSTGRES_DB=fastapi
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U fastapi"]
+      test: ["CMD-SHELL", "pg_isready -d fastapi"]
       interval: 10s
       timeout: 5s
       retries: 5
+
+volumes:
+  postgres_data:
