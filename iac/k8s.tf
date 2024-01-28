@@ -6,7 +6,7 @@ resource "kubernetes_namespace" "example" {
 
 resource "kubernetes_deployment" "example" {
   metadata {
-    name = "terraform-example"
+    name = "fastapi-example"
     labels = {
       test = "FastApiExample"
     }
