@@ -10,7 +10,11 @@
       in
       {
         devShells.default = pkgs.mkShell {
-          packages = [ pkgs.python311 ];
+          packages = [ 
+          pkgs.python311 
+          pkgs.opentofu
+          pkgs.minikube
+          ];
         };
       });
 }
