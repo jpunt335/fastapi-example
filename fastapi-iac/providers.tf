@@ -11,9 +11,9 @@ terraform {
   }
 }
 
-provider "digitalocean" {
-  token = var.digitalocean_token
-}
+#provider "digitalocean" {
+#  token = var.digitalocean_token
+#}
 
 #provider "kubernetes" {
 #  host = digitalocean_kubernetes_cluster.default_cluster.endpoint

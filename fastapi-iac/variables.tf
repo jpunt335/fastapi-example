@@ -36,11 +36,7 @@ variable domain_name {
   default = ["weerwijzer-belastingdienst.online"]
 }
 
-variable digitalocean_token {
-  description = "The API token from your Digital Ocean control panel"
-  type = string
-  default        = "dop_v1_91eaaf0a682f447686523f5ee41cb888f56dae864bdc7e0a2433420f232cb418"
-}
+
 
 
 variable letsencrypt_email {
