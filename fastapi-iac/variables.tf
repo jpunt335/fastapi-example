@@ -3,6 +3,7 @@ variable "region"{
     default = "ams3"
 }
 
+
 variable "cluster_name"{
     type = string
     default = "k8s-cluster"
