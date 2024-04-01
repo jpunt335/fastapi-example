@@ -1,8 +1,3 @@
-#variable "do_token" {
-#  type = string
-#  default = ${{ secrets.DO_TOKEN }}
-#}
-
 variable "region"{
     type = string
     default = "ams3"
