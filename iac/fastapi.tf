@@ -47,7 +47,7 @@ resource "kubernetes_deployment" "fastapi" {
 
 			spec {
 				container {
-					image = "credmp/fastapi-example"
+					image = "justin/test"
 					image_pull_policy = "IfNotPresent"
 					name = "fastapi"
 					env {
